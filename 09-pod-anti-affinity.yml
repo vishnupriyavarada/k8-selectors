@@ -30,3 +30,8 @@ spec:
   containers:
   - name: with-node-affinity
     image: registry.k8s.io/pause:3.8
+  tolearations:
+  - key: "hardware"
+    operator: "Equal"
+    value: "gpu"
+    effect: "NoExecute"
