@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: taint
+  name: taint-demo-pod
   labels:
     purpose: "taint-demo"
 spec:
