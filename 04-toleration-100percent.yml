@@ -1,0 +1,19 @@
+apiVersion : v1
+kind: Pod
+metadata:
+  name: toleration-100per-demo
+  labels:
+    purpose: "toleration-100per-demo"
+spec:
+  # removing nodeSelector so tha nodes will be created in different. we will taint node first and then do toleration
+  # to prove that pods can be created anywhere other than tainte nodes
+  # nodeSelector:
+  #   topology.kubernetes.io/zone: us-east-1c
+  containers:
+    - name: nginx-container
+      image: nginx
+  tolerations:
+    - key: "hardware"
+      operator: "Equal"
+      value: "gpu"
+      effect: "NoExecute"
